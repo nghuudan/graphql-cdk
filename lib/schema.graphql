@@ -1,0 +1,21 @@
+type Memo {
+  id: String!
+  version: String!
+  message: String
+}
+
+type Query {
+  allMemos: [ Memo! ]
+  memo(memoId: String!): Memo
+}
+
+input MemoInput {
+  version: String!
+  message: String
+}
+
+type Mutation {
+  addMemo(input: MemoInput!): Memo
+  deleteMemo(memoId: String!): Memo
+  updateMemo(memoId: String!, input: MemoInput!): Memo
+}
